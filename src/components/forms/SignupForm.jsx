@@ -8,7 +8,7 @@ const SignupForm = () => {
   const schema = yup.object().shape({
     firstName: yup.string().required('Ingrese su nombre'),
     lastName: yup.string().required('Ingrese su apellido'),
-    email: yup.string().required('Ingrese su email').email('Email incorrecto'),
+    email: yup.string().required('Ingrese su email').email('El email que ingreso es invalido'),
     phone: yup.string().required('Ingrese su telefono'),
     password: yup
       .string()
@@ -27,6 +27,7 @@ const SignupForm = () => {
   } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
 
   const onSubmit = (data) => {
+    // controlar registro
     console.log(data);
     
   };
@@ -54,7 +55,7 @@ const SignupForm = () => {
             <Form.Control
               type="text"
               name="lastName"
-              placeholder="Nombre"
+              placeholder="Apellidos"
               {...register('lastName')}
               className={`${errors.lastName ? 'is-invalid' : ''}`}
             />
@@ -83,7 +84,7 @@ const SignupForm = () => {
         <Form.Control
           type="text"
           name="phone"
-          placeholder="Phone"
+          placeholder="Teléfono"
           {...register('phone')}
           className={`${errors.phone ? 'is-invalid' : ''}`}
         />

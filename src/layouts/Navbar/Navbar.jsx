@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Container, Form, Modal, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import ContactusForm from '../../components/forms/ContactusForm';
 import './Navbar.css';
 
 export default function NavBar() {
@@ -58,48 +59,7 @@ export default function NavBar() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
-            <Form.Group className="form-floating mb-3">
-              <Form.Control type="text" id="name" placeholder="Name" />
-              <Form.Label for="name">Nombre</Form.Label>
-              <div className="invalid-feedback">Invalid</div>
-            </Form.Group>
-            <Form.Group className="form-floating mb-3">
-              <Form.Control type="email" placeholder="Email" />
-              <Form.Label>Correo</Form.Label>
-              <div className="invalid-feedback">Invalid</div>
-            </Form.Group>
-            <Form.Group className="form-floating mb-3">
-              <Form.Control type="tel" placeholder="Phone" />
-              <Form.Label>Telefono</Form.Label>
-              <div className="invalid-feedback">Invalid</div>
-            </Form.Group>
-            <Form.Group className="form-floating mb-3">
-              <Form.Control as="textarea" rows={6} placeholder="Message" />
-              <Form.Label>Mensaje</Form.Label>
-              <div className="invalid-feedback">Invalid</div>
-            </Form.Group>
-            <div class="d-none" id="submitSuccessMessage">
-              <div class="text-center mb-3">
-                <div class="fw-bolder">Form submission successful!</div>
-              </div>
-            </div>
-            <div className="d-grid">
-              <div class="d-none" id="submitErrorMessage">
-                <div class="text-center text-danger mb-3">
-                  Error sending message!
-                </div>
-              </div>
-              <Button
-                className="rounded-pill btn-lg disabled"
-                type="submit"
-                id="submitButton"
-                onClick={handleSubmit}
-              >
-                Enviar
-              </Button>
-            </div>
-          </Form>
+          <ContactusForm onSubmitParent={handleSubmit} />
         </Modal.Body>
       </Modal>
     </React.Fragment>

@@ -4,6 +4,8 @@ import SignupForm from '../components/forms/SignupForm';
 import Landing from '../pages/Landing/landing';
 import Login from '../pages/Login/login';
 import Fincas from '../pages/Fincas/fincas';
+import Workspaces from '../pages/Workspaces/workspaces';
+import Devices from '../pages/Devices/devices';
 
 const Router = () => {
   return (
@@ -19,7 +21,9 @@ const Router = () => {
         element={<Login children={<SignupForm />} />}
       />
       <Route  path='/fincas' element={<Fincas /> } />
-      <Route  path='/fincas/nueva' element={<>Hey</>} />
+      <Route path='/fincas/:id/espacios' element={<Workspaces />} />
+      <Route path='/fincas/:id/espacios/:id/dispositivos' element={<Devices />} />
+      <Route path='/fincas/:id/espacios/:id/dispositivos/:id/escenas' element={<></>} />
     </Routes>
   );
 }

@@ -26,13 +26,14 @@ const SigninForm = () => {
 
   const navigate = useNavigate();
   
-  const onSubmit = (data) => {
+  const login = (data) => {
+    // controlar login
     console.log(data);
     navigate('/fincas');
   };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(login)}>
       <Form.Group className="form-floating mb-3" controlId="username">
         <Form.Control
           type="text"
@@ -60,14 +61,14 @@ const SigninForm = () => {
         </Form.Control.Feedback>
       </Form.Group>
       <div className="d-flex justify-content-center align-items-center mb-4">
-        <a href="#!">Olvidaste tu contraseña?</a>
+        <Link to='/reset-pwd' className='link-primary'>Olvidaste tu contraseña?</Link>
       </div>
       <div className="text-center">
         <Button className="btn-lg btn-block" type="submit" id="submitButton">
           Iniciar Sesión
         </Button>
         <p className='mt-2 pt-1 mb-0'>
-          No tienes una cuenta?&nbsp;<Link to='/signup' className='link-primary'>Registrate</Link>
+          No tienes una cuenta?&nbsp;<Link to='/signup' className='link-primary'>Regístrate</Link>
         </p>
       </div>
     </Form>
